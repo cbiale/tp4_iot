@@ -16,7 +16,7 @@ describe('Selenium-WebDriver Test', () => {
         // si la cantidad de datos es mayor o igual a 3
         if (datos.length >= 3) {
             // realizo click en el tercer resultado
-            await datos     [2].click();
+            await datos[2].click();
             await driver.sleep(2000);
             // obtengo el URL que hasta la prueba debe ser https://github.com/gschorcht/RIOT-Xtensa-ESP
             let url = await driver.getCurrentUrl();
