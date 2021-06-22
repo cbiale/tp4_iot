@@ -3,8 +3,6 @@
 const { Builder, By, Key, until } = require("selenium-webdriver");
 const { expect } = require("chai");
 
-async function main() {
-
 describe("Selenium-WebDriver Test", () => {
 	const driver = new Builder().forBrowser("chrome").build();
 
@@ -20,7 +18,7 @@ describe("Selenium-WebDriver Test", () => {
 		let datos = await driver.findElements(By.className("yuRUbf"));
 		// almaceno parte de los títulos que muestra google en los resultados
         let titulos = await driver.findElements(By.className("LC20lb DKV0Md"));
-		// variable del titulo del sitio
+		// variable del titulo del sitio (distintas para el caso que no tenga 3 elementos)
         let tituloSitio = "";
         let tituloURL = "-";
 		// si la cantidad de datos es mayor o igual a 3
@@ -45,6 +43,5 @@ describe("Selenium-WebDriver Test", () => {
  
     after(async () => driver.quit());
 });
-}
 
-main()
+
