@@ -24,7 +24,7 @@ describe("Selenium-WebDriver Test", () => {
 		// si la cantidad de datos es mayor o igual a 3
 		if (datos.length >= 3) {
             tituloURL = await titulos[2].getText();
-            // tomo parte del título obtenido (no siempre es correcto)
+            // tomo parte del título obtenido (39 caracteres, no siempre es correcto)
             tituloURL = tituloURL.slice(0, 40);
 			// realizo click en el tercer resultado
 			await datos[2].click();
@@ -32,12 +32,10 @@ describe("Selenium-WebDriver Test", () => {
 			await driver.sleep(2000);
 			// obtengo el título al que se accedió
 			tituloSitio = await driver.getTitle();
-            // normalizo título al que se accedió
+            // normalizo título al que se accedió (39 caracteres, para comparar ambos títulos)
             tituloSitio = await tituloSitio.slice(0, 40);
 		}
 		// comparo los títulos
-        console.log("Sitio: " + tituloSitio);
-        console.log("URL: " + tituloURL);
         expect(tituloSitio).to.equal(tituloURL);
 	});
  
